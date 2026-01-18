@@ -44,5 +44,4 @@ public class PracticeFormTest {
 
         $("#submit").click();
     }
-
 }
