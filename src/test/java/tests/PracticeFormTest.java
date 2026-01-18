@@ -1,6 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -12,9 +14,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
+    }
+
     @Test
     void fillFormTest() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("#firstName").setValue("Rostislav");
         $("#lastName").setValue("Olegovich");
         $("#userEmail").setValue("aqa@qa.ru");
@@ -33,7 +40,7 @@ public class PracticeFormTest {
         $("label[for='hobbies-checkbox-2']").click(); // Reading
         $("label[for='hobbies-checkbox-3']").click(); // Music
 
-        $("#uploadPicture").uploadFile(new File("/Users/rostislavpuckanev/Desktop/Снимок экрана 2026-01-17 в 19.54.15.png"));
+        $("#uploadPicture").uploadFromClasspath("images/pic.png");
         $("#currentAddress").setValue("PushkinaKolotushkina");
 
         $("#state").click();
