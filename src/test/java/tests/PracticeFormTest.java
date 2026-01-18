@@ -17,6 +17,8 @@ public class PracticeFormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.holdBrowserOpen = true;
+        Configuration.timeout = 5000; // default 4
     }
 
     @Test
