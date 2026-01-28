@@ -89,7 +89,7 @@ import static com.codeborne.selenide.Selenide.*;
             return this;
         }
 
-        // ===== Assertions (проверки) =====
+        // Assertions (проверки)
 
         public PracticeFormPage checkFormAppears() {
             $(".modal-dialog").should(appear);
